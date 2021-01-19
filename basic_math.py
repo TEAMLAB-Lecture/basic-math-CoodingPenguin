@@ -24,8 +24,7 @@ def get_greatest(number_list):
             >>> bm.get_greatest(number_list)
             99
     """
-    greatest_number = None
-    return greatest_number
+    return max(number_list)
 
 
 def get_smallest(number_list):
@@ -45,8 +44,7 @@ def get_smallest(number_list):
             >>> bm.get_smallest(number_list)
             11
     """
-    smallest_number = None
-    return smallest_number
+    return min(number_list)
 
 
 def get_mean(number_list):
@@ -66,7 +64,7 @@ def get_mean(number_list):
             >>> bm.get_mean(number_list)
             47
     """
-    mean = None
+    mean = sum(number_list) / len(number_list)
     return mean
 
 
@@ -90,5 +88,10 @@ def get_median(number_list):
             >>> bm.get_median(number_list2)
             35.5
     """
-    median = None
-    return median
+    temp_list = sorted(number_list)     # 리스트 정렬 
+    l = len(temp_list)                  # 리스트 길이
+    # 개수가 짝수인 경우
+    if l%2 == 0:
+        return (temp_list[l//2-1] + temp_list[l//2]) / 2
+    # 개수가 홀수인 경우
+    return temp_list[l//2]
